@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zara Handmade celebrates Afghan craft traditions through beautifully handmade shawls, hats, scarves, accessories, and carpets.">
+  <meta name="theme-color" content="#4b101c">
+  <title>Zara Handmade — Afghan Heritage, Handcrafted</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:light;--wine:#4b101c;--wine2:#671c2b;--red:#9d303b;--gold:#b68a4a;--gold-light:#e5cc94;--cream:#f8f2e7;--paper:#fffaf1;--ink:#30251f;--muted:#76685f;--line:#e4d6c2;--sage:#899779;--card:#fffdf8;--shadow:0 18px 50px rgba(61,28,25,.12)}
+    [data-theme="dark"]{color-scheme:dark;--wine:#170b0e;--wine2:#35131b;--red:#d77a7e;--gold:#d2ad6a;--gold-light:#f1d8a1;--cream:#201719;--paper:#281d1e;--ink:#f5eadb;--muted:#c2b0a2;--line:#493436;--sage:#a2b095;--card:#302224;--shadow:0 18px 50px rgba(0,0,0,.28)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65;overflow-x:hidden;transition:background .3s,color .3s}
+    body.locked{overflow:hidden}
+    img{display:block;width:100%;object-fit:cover}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    button{cursor:pointer}
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+    h1,h2,h3,.serif{font-family:"Cormorant Garamond",serif;font-weight:600;line-height:1.05}
+    h2{font-size:clamp(2.5rem,4vw,4rem)}
+    .container{width:min(1180px,88%);margin:auto}
+    .eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+    .section{padding:100px 0;position:relative}
+    .section-heading{text-align:center;max-width:680px;margin:0 auto 42px}
+    .section-heading h2{margin:10px 0 14px;color:var(--wine2)}
+    [data-theme="dark"] .section-heading h2{color:var(--ink)}
+    .section-heading p:last-child{color:var(--muted)}
+    .ornament{width:120px;height:22px;margin:16px auto 0;background:url("assets/floral-ornament.svg") center/contain no-repeat;opacity:.8}
+    .btn{border:1px solid transparent;border-radius:3px;padding:13px 22px;display:inline-flex;gap:12px;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;letter-spacing:.03em;transition:transform .25s,background .25s,color .25s,border-color .25s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--wine);color:#fff7e8}
+    .btn-primary:hover{background:var(--red)}
+    .btn-outline{border-color:var(--gold);color:var(--ink);background:transparent}
+    .btn-outline:hover{background:var(--gold);color:#26170f}
+    .icon-button{width:42px;height:42px;border:1px solid var(--line);background:transparent;color:var(--ink);display:grid;place-items:center;border-radius:50%;font-size:1.1rem;transition:.2s}
+    .icon-button:hover{border-color:var(--gold);color:var(--gold)}
+    /* header */
+    .site-header{position:sticky;top:0;z-index:1000;background:var(--wine);color:#fff4de;border-bottom:1px solid rgba(214,174,105,.35);box-shadow:0 6px 22px rgba(32,9,12,.12)}
+    .header-inner{min-height:78px;display:flex;align-items:center;gap:28px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+    .brand-mark{width:43px;height:43px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold-light);font-family:"Cormorant Garamond",serif;font-size:1.8rem;line-height:1}
+    .brand-name{font-family:"Cormorant Garamond",serif;font-size:1.7rem;line-height:1;letter-spacing:.04em}
+    .brand-sub{font-size:.53rem;letter-spacing:.27em;margin-top:5px;color:#d8c39b}
+    .main-nav{display:flex;align-items:center;justify-content:center;gap:clamp(16px,2.4vw,34px);margin-left:auto}
+    .main-nav a{font-size:.74rem;color:#f4e8d7;position:relative;padding:10px 0}
+    .main-nav a:after{content:"";position:absolute;bottom:2px;left:0;width:0;height:1px;background:var(--gold-light);transition:width .25s}
+    .main-nav a:hover:after,.main-nav a.active:after{width:100%}
+    .header-actions{display:flex;align-items:center;gap:10px}
+    .theme-toggle{border:1px solid rgba(226,195,139,.55);border-radius:30px;padding:5px 10px;background:rgba(255,255,255,.07);color:#fff1d3;font-size:.85rem;min-width:64px}
+    .bag-trigger{position:relative;border:1px solid rgba(226,195,139,.55);background:transparent;color:#fff1d3;border-radius:50%;width:42px;height:42px;font-size:1.15rem}
+    .bag-count{position:absolute;top:-5px;right:-4px;min-width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--wine);font-size:.63rem;font-weight:700;padding:0 4px}
+    .menu-toggle{display:none;background:transparent;border:1px solid rgba(226,195,139,.55);color:#fff1d3;width:42px;height:42px;font-size:1.3rem}
+    /* hero */
+    .hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;background:var(--wine);color:#fff4e5;overflow:hidden;position:relative}
+    .hero-copy{padding:clamp(60px,8vw,115px) 8% clamp(65px,8vw,110px) max(6vw,calc((100vw - 1180px)/2));display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:relative;z-index:2}
+    .hero-copy:before{content:"";position:absolute;inset:24px 20px 24px 16px;border:1px solid rgba(207,168,99,.28);pointer-events:none}
+    .hero-copy .eyebrow{color:var(--gold-light);margin-bottom:22px}
+    .hero h1{font-size:clamp(3.7rem,6.5vw,6.8rem);font-weight:500;letter-spacing:-.035em;max-width:650px}
+    .hero h1 em{color:var(--gold-light);font-weight:400}
+    .hero-lede{max-width:440px;color:#e4d3c0;font-size:.94rem;margin:25px 0 30px}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
+    .hero .btn-outline{border-color:#c6a267;color:#fff4e5}
+    .hero-note{margin-top:28px;color:#d7c4ae;font-size:.69rem;letter-spacing:.08em}
+    .hero-note span{color:var(--gold-light);padding-right:8px}
+    .hero-art{position:relative;min-height:590px;overflow:hidden}
+    .hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--wine) 0%,rgba(75,16,28,.08) 28%,rgba(37,15,14,.06) 100%)}
+    .hero-art img{height:100%;position:absolute;inset:0;filter:saturate(.88)}
+    .hero-stamp{position:absolute;z-index:2;right:9%;bottom:9%;width:116px;height:116px;border:1px solid var(--gold-light);outline:1px solid rgba(229,204,148,.45);outline-offset:6px;border-radius:50%;display:grid;place-content:center;text-align:center;color:#fff4df;background:rgba(57,15,23,.62);font-family:"Cormorant Garamond",serif;font-size:1.2rem;line-height:1.05}
+    .hero-stamp small{font-family:"DM Sans",sans-serif;font-size:.52rem;letter-spacing:.16em;margin-top:7px}
+    .hero-floral{position:absolute;z-index:3;right:-30px;top:10px;width:170px;height:170px;background:url("assets/floral-ornament.svg") center/contain no-repeat;filter:brightness(1.4)}
+    /* categories */
+    .categories-section{background:var(--cream);overflow:hidden}
+    .categories-section:before,.categories-section:after{content:"";position:absolute;width:145px;height:145px;background:url("assets/floral-ornament.svg") center/contain no-repeat;opacity:.55;pointer-events:none}
+    .categories-section:before{left:-30px;top:25px;transform:rotate(-80deg)}
+    .categories-section:after{right:-35px;bottom:15px;transform:rotate(95deg)}
+    .category-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;position:relative;z-index:1}
+    .category-card{position:relative;background:var(--card);border:1px solid var(--line);padding:9px 9px 18px;text-align:center;transition:transform .3s,box-shadow .3s,border-color .3s}
+    .category-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:var(--gold)}
+    .category-card img{height:185px;object-fit:cover}
+    .category-card h3{font-size:1.65rem;color:var(--wine2);margin:15px 0 7px}
+    [data-theme="dark"] .category-card h3{color:var(--ink)}
+    .category-card p{color:var(--muted);font-size:.72rem;min-height:42px;padding:0 5px}
+    .category-link{display:inline-flex;gap:8px;align-items:center;margin-top:12px;font-size:.68rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.07em}
+    /* products */
+    .shop-section{background:var(--paper)}
+    .filter-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:-12px 0 32px}
+    .filter-btn{padding:9px 15px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:.72rem;border-radius:2px;transition:.2s}
+    .filter-btn:hover,.filter-btn.active{background:var(--wine);border-color:var(--wine);color:#fff4df}
+    .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+    .product-card{background:var(--card);border:1px solid var(--line);min-width:0;transition:transform .3s,box-shadow .3s}
+    .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .product-photo{position:relative;overflow:hidden;background:var(--cream)}
+    .product-photo img{aspect-ratio:4/4.4;transition:transform .5s}
+    .product-card:hover .product-photo img{transform:scale(1.04)}
+    .product-tag{position:absolute;top:12px;left:12px;background:var(--paper);color:var(--red);font-size:.58rem;font-weight:700;letter-spacing:.1em;padding:5px 8px;text-transform:uppercase}
+    .quick-view{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(75,16,28,.92);color:#fff5e7;padding:10px;font-size:.68rem;transform:translateY(12px);opacity:0;transition:.25s}
+    .product-card:hover .quick-view,.quick-view:focus-visible{transform:translateY(0);opacity:1}
+    .product-info{padding:15px 15px 17px}
+    .product-category{font-size:.59rem;color:var(--gold);font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+    .product-info h3{font-size:1.55rem;margin:5px 0 13px;color:var(--ink)}
+    .product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .price{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.55rem;color:var(--red)}
+    .add-button{width:36px;height:36px;background:var(--wine);color:#fff4df;font-size:1.35rem;border:1px solid var(--wine);transition:.2s}
+    .add-button:hover{background:var(--gold);border-color:var(--gold);color:var(--wine)}
+    .empty-filter{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px}
+    /* story */
+    .story-section{background:var(--wine);color:#f9eddb;padding:0;display:grid;grid-template-columns:1fr 1fr;min-height:480px}
+    .story-image{min-height:480px;position:relative}
+    .story-image img{height:100%;position:absolute;inset:0}
+    .story-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,11,13,.28),transparent)}
+    .story-copy{padding:clamp(55px,7vw,95px) clamp(35px,7vw,100px);display:flex;flex-direction:column;justify-content:center;position:relative}
+    .story-copy h2{font-size:clamp(2.7rem,4vw,4.4rem);margin:12px 0 20px}
+    .story-copy p{color:#dfcdbb;font-size:.88rem;max-width:520px}
+    .story-values{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:35px}
+    .story-value{border-top:1px solid rgba(214,174,105,.55);padding-top:13px}
+    .story-value strong{display:block;color:var(--gold-light);font-family:"Cormorant Garamond",serif;font-size:1.35rem}
+    .story-value span{display:block;font-size:.66rem;color:#dfcdbb;margin-top:4px}
+    .story-floral{position:absolute;right:-25px;top:20px;width:130px;height:130px;background:url("assets/floral-ornament.svg") center/contain no-repeat;opacity:.65}
+    /* contact */
+    .contact-section{background:var(--cream);overflow:hidden}
+    .contact-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:start}
+    .contact-copy h2{color:var(--wine2);margin:12px 0 18px}
+    [data-theme="dark"] .contact-copy h2{color:var(--ink)}
+    .contact-copy>p{color:var(--muted);max-width:410px}
+    .contact-detail{display:flex;gap:14px;align-items:center;margin-top:24px}
+    .contact-symbol{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold);font-size:1.1rem}
+    .contact-detail strong{display:block;font-size:.77rem}
+    .contact-detail span{font-size:.72rem;color:var(--muted)}
+    .contact-form{padding:30px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .contact-form label{display:block;color:var(--muted);font-size:.7rem;font-weight:600;margin-bottom:16px}
+    .contact-form input,.contact-form textarea{display:block;width:100%;margin-top:7px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:12px 13px;border-radius:0;font-size:.8rem;resize:vertical}
+    .contact-form input:focus,.contact-form textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(182,138,74,.12)}
+    .form-note{color:var(--muted);font-size:.65rem;margin-top:12px}
+    /* footer */
+    footer{background:#210d12;color:#dfcdbb;padding:32px 0;border-top:1px solid rgba(214,174,105,.3)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .footer-brand{display:flex;align-items:center;gap:10px}
+    .footer-brand .brand-mark{width:34px;height:34px;font-size:1.3rem}
+    .footer-brand span:last-child{font-family:"Cormorant Garamond",serif;font-size:1.25rem}
+    .footer-inner p{font-size:.68rem;color:#bba797}
+    .footer-links{display:flex;gap:17px;font-size:.7rem}
+    .footer-links a:hover{color:var(--gold-light)}
+    /* modal, cart, toast */
+    .overlay{position:fixed;inset:0;z-index:1500;background:rgba(18,8,10,.62);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:.25s}
+    .overlay.open{opacity:1;visibility:visible}
+    .dialog{position:fixed;z-index:1501;top:50%;left:50%;transform:translate(-50%,-46%) scale(.97);width:min(760px,calc(100% - 32px));max-height:90vh;overflow:auto;background:var(--paper);color:var(--ink);border:1px solid var(--gold);box-shadow:0 25px 90px rgba(0,0,0,.3);opacity:0;visibility:hidden;transition:.25s}
+    .dialog.open{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+    .dialog-close{position:absolute;right:12px;top:12px;z-index:3;background:var(--paper);color:var(--ink);border:1px solid var(--line);width:36px;height:36px;font-size:1.35rem}
+    .product-dialog-content{display:grid;grid-template-columns:1fr 1fr;min-height:360px}
+    .product-dialog-content>img{height:100%;min-height:360px}
+    .dialog-copy{padding:45px 32px;display:flex;flex-direction:column;justify-content:center}
+    .dialog-copy h2{font-size:2.7rem;margin:10px 0}
+    .dialog-copy p{color:var(--muted);font-size:.83rem;margin-bottom:20px}
+    .dialog-price{font-family:"Cormorant Garamond",serif;font-size:2rem;color:var(--red);margin-bottom:18px}
+    .welcome-dialog{width:min(470px,calc(100% - 32px));padding:45px 38px;text-align:center;background:var(--paper)}
+    .welcome-dialog .ornament{margin-bottom:12px}
+    .welcome-dialog h2{font-size:2.8rem;margin:10px 0}
+    .welcome-dialog p{color:var(--muted);font-size:.82rem;margin-bottom:24px}
+    .bag-drawer{position:fixed;z-index:1600;right:0;top:0;height:100dvh;width:min(420px,100%);background:var(--paper);color:var(--ink);box-shadow:-20px 0 70px rgba(0,0,0,.2);transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column}
+    .bag-drawer.open{transform:translateX(0)}
+    .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:24px;border-bottom:1px solid var(--line)}
+    .drawer-head h2{font-size:2.1rem}
+    .bag-items{overflow:auto;padding:18px 24px;flex:1}
+    .bag-empty{text-align:center;color:var(--muted);padding:55px 12px}
+    .bag-empty .bag-icon{font-size:2.8rem;color:var(--gold)}
+    .bag-item{display:grid;grid-template-columns:76px 1fr auto;gap:13px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+    .bag-item img{width:76px;height:82px}
+    .bag-item h3{font-size:1.25rem}
+    .bag-item p{font-size:.75rem;color:var(--red);margin:3px 0}
+    .quantity-control{display:flex;align-items:center;gap:9px}
+    .quantity-control button{width:24px;height:24px;border:1px solid var(--line);background:transparent;color:var(--ink)}
+    .remove-item{background:transparent;color:var(--muted);font-size:.72rem;text-decoration:underline}
+    .drawer-foot{border-top:1px solid var(--line);padding:22px 24px}
+    .subtotal{display:flex;justify-content:space-between;font-weight:700;margin-bottom:16px}
+    .drawer-foot .btn{width:100%}
+    .toast{position:fixed;z-index:2000;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--wine);color:#fff4df;border:1px solid var(--gold);padding:13px 20px;box-shadow:var(--shadow);font-size:.78rem;max-width:calc(100% - 30px);transition:.25s;text-align:center}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s,transform .65s}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:1000px){.main-nav{gap:15px}.brand-name{font-size:1.5rem}.category-grid{grid-template-columns:repeat(3,1fr)}.product-grid{grid-template-columns:repeat(3,1fr)}.hero{min-height:560px}.hero-art{min-height:560px}}
+    @media(max-width:760px){.container{width:90%}.header-inner{min-height:70px;gap:12px;flex-wrap:wrap}.menu-toggle{display:block;margin-left:auto}.main-nav{display:none;order:5;flex-basis:100%;margin:0;padding:8px 0 16px;flex-direction:column;gap:3px;align-items:stretch}.main-nav.open{display:flex}.main-nav a{text-align:center;padding:9px}.header-actions{margin-left:0}.hero{grid-template-columns:1fr}.hero-copy{padding:75px 7%;min-height:490px}.hero-art{min-height:350px}.hero-art:after{background:linear-gradient(0deg,rgba(75,16,28,.1),rgba(75,16,28,.02))}.section{padding:75px 0}.category-grid{grid-template-columns:repeat(2,1fr)}.category-card img{height:165px}.product-grid{grid-template-columns:repeat(2,1fr);gap:14px}.story-section{grid-template-columns:1fr}.story-image{min-height:330px}.story-copy{padding:55px 7%}.story-floral{right:-25px}.contact-layout{grid-template-columns:1fr;gap:30px}.footer-inner{flex-wrap:wrap;justify-content:center;text-align:center}.footer-inner p{flex-basis:100%;order:3}.footer-links{justify-content:center}}
+    @media(max-width:480px){.brand-mark{width:36px;height:36px;font-size:1.5rem}.brand-name{font-size:1.32rem}.brand-sub{font-size:.45rem}.theme-toggle{min-width:42px;padding:5px 8px}.bag-trigger,.icon-button{width:38px;height:38px}.hero h1{font-size:3.45rem}.hero-copy{min-height:455px}.category-grid{gap:10px}.category-card{padding:7px 7px 14px}.category-card img{height:135px}.category-card h3{font-size:1.4rem}.category-card p{font-size:.65rem}.product-grid{gap:10px}.product-info{padding:12px 10px}.product-info h3{font-size:1.28rem}.price{font-size:1.35rem}.quick-view{opacity:1;transform:none}.form-row{grid-template-columns:1fr;gap:0}.contact-form{padding:22px 17px}.product-dialog-content{grid-template-columns:1fr}.product-dialog-content>img{height:260px;min-height:260px}.dialog-copy{padding:26px}.dialog-copy h2{font-size:2.2rem}.story-values{gap:9px}.story-value strong{font-size:1.15rem}.story-value span{font-size:.6rem}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner container">
+    <a class="brand" href="#home" aria-label="Zara Handmade home">
+      <span class="brand-mark">Z</span><span><span class="brand-name">Zara Handmade</span><span class="brand-sub">AFGHAN HERITAGE • HANDCRAFTED</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a><a href="#categories">Categories</a><a href="#shop">Shop</a><a href="#craft">Our Craft</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" title="Switch theme">☼ / ☾</button>
+      <button class="bag-trigger" id="bagTrigger" aria-label="Open shopping bag">♧<span class="bag-count" id="bagCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <p class="eyebrow">Traditional crafts &nbsp; • &nbsp; Afghan heritage</p>
+      <h1>Timeless pieces.<br><em>Handcrafted with heart.</em></h1>
+      <p class="hero-lede">Discover the beauty of Afghan handmade crafts, where generations of skill meet thoughtful design. Every stitch, weave, and pattern carries a story worth sharing.</p>
+      <div class="hero-buttons"><a class="btn btn-primary" href="#shop">Explore the collection <span>↗</span></a><a class="btn btn-outline" href="#craft">Discover our story</a></div>
+      <p class="hero-note"><span>✦</span> Celebrating makers, heritage, and one-of-a-kind details</p>
+    </div>
+    <div class="hero-art">
+      <img src="images/shawls/embroidered-shawl.jpg" alt="Rich burgundy embroidered Afghan shawl arranged in a traditional setting">
+      <span class="hero-floral" aria-hidden="true"></span>
+      <div class="hero-stamp">Made by hand<small>ROOTED IN HERITAGE</small></div>
+    </div>
+  </section>
+
+  <section class="section categories-section" id="categories">
+    <div class="container">
+      <div class="section-heading reveal"><p class="eyebrow">The Zara edit</p><h2>Shop by category</h2><p>Explore meaningful pieces inspired by Afghan artistry and made to be treasured.</p><div class="ornament" aria-hidden="true"></div></div>
+      <div class="category-grid">
+        <article class="category-card reveal"><a href="#shop" data-category-link="Shawls"><img src="images/shawls/embroidered-shawl.jpg" alt="Burgundy embroidered handmade shawl"><h3>Shawls</h3><p>Traditional embroidery and rich, graceful layers.</p><span class="category-link">Explore shawls ↗</span></a></article>
+        <article class="category-card reveal"><a href="#shop" data-category-link="Hats"><img src="images/hats/embroidered-pakol.jpg" alt="Traditional wool pakol-style hat with embroidered band"><h3>Hats</h3><p>Warm textures with a heritage-inspired finish.</p><span class="category-link">Explore hats ↗</span></a></article>
+        <article class="category-card reveal"><a href="#shop" data-category-link="Scarves"><img src="images/scarves/woven-scarf.jpg" alt="Red and navy patterned woven scarf"><h3>Scarves</h3><p>Expressive patterns and soft woven textures.</p><span class="category-link">Explore scarves ↗</span></a></article>
+        <article class="category-card reveal"><a href="#shop" data-category-link="Accessories"><img src="images/accessories/afghan-jewelry.jpg" alt="Traditional silver jewelry with colorful stones"><h3>Accessories</h3><p>Small details with a distinctive handcrafted spirit.</p><span class="category-link">Explore accessories ↗</span></a></article>
+        <article class="category-card reveal"><a href="#shop" data-category-link="Carpets"><img src="images/carpets/afghan-rug.jpg" alt="Deep red Afghan rug with traditional geometric motifs"><h3>Carpets</h3><p>Artful woven patterns shaped by generations.</p><span class="category-link">Explore carpets ↗</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shop-section" id="shop">
+    <div class="container">
+      <div class="section-heading reveal"><p class="eyebrow">Made to mean something</p><h2>The handmade collection</h2><p>Find your favorite piece from our five heritage-inspired categories.</p><div class="ornament" aria-hidden="true"></div></div>
+      <div class="filter-row" role="group" aria-label="Filter products by category">
+        <button class="filter-btn active" data-filter="All">All pieces</button><button class="filter-btn" data-filter="Shawls">Shawls</button><button class="filter-btn" data-filter="Hats">Hats</button><button class="filter-btn" data-filter="Scarves">Scarves</button><button class="filter-btn" data-filter="Accessories">Accessories</button><button class="filter-btn" data-filter="Carpets">Carpets</button>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <article class="product-card reveal" data-id="shawl-01" data-category="Shawls" data-name="Embroidered Heritage Shawl" data-price="48" data-description="A statement shawl inspired by the intricate floral embroidery and rich colors of Afghan textile traditions.">
+          <div class="product-photo"><span class="product-tag">Featured</span><img src="images/shawls/embroidered-shawl.jpg" alt="Embroidered heritage shawl"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">SHAWLS</p><h3>Embroidered Heritage Shawl</h3><div class="product-bottom"><span class="price">$48.00</span><button class="add-button" type="button" aria-label="Add Embroidered Heritage Shawl to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="shawl-02" data-category="Shawls" data-name="Crimson Garden Wrap" data-price="42" data-description="A richly colored wrap with floral-inspired motifs and a soft, elegant drape for special occasions.">
+          <div class="product-photo"><img src="images/shawls/shawls-detail.jpg" alt="Crimson garden wrap with embroidery"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">SHAWLS</p><h3>Crimson Garden Wrap</h3><div class="product-bottom"><span class="price">$42.00</span><button class="add-button" type="button" aria-label="Add Crimson Garden Wrap to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="hat-01" data-category="Hats" data-name="Traditional Wool Pakol" data-price="29" data-description="A wool hat inspired by the traditional pakol silhouette, finished with a decorative patterned band.">
+          <div class="product-photo"><span class="product-tag">Heritage</span><img src="images/hats/embroidered-pakol.jpg" alt="Traditional wool pakol hat"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">HATS</p><h3>Traditional Wool Pakol</h3><div class="product-bottom"><span class="price">$29.00</span><button class="add-button" type="button" aria-label="Add Traditional Wool Pakol to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="hat-02" data-category="Hats" data-name="Mountain Weave Cap" data-price="25" data-description="A cozy, rustic cap inspired by mountain craft traditions and practical everyday wear.">
+          <div class="product-photo"><img src="images/hats/hats-detail.jpg" alt="Rustic handmade wool cap"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">HATS</p><h3>Mountain Weave Cap</h3><div class="product-bottom"><span class="price">$25.00</span><button class="add-button" type="button" aria-label="Add Mountain Weave Cap to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="scarf-01" data-category="Scarves" data-name="Bamiyan Pattern Scarf" data-price="24" data-description="A bold scarf featuring deep red and indigo tones, woven texture, and decorative fringed edges.">
+          <div class="product-photo"><img src="images/scarves/woven-scarf.jpg" alt="Bamiyan pattern woven scarf"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">SCARVES</p><h3>Bamiyan Pattern Scarf</h3><div class="product-bottom"><span class="price">$24.00</span><button class="add-button" type="button" aria-label="Add Bamiyan Pattern Scarf to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="scarf-02" data-category="Scarves" data-name="Indigo Heritage Scarf" data-price="22" data-description="A versatile patterned scarf with an artisanal look, designed to bring color and character to everyday outfits.">
+          <div class="product-photo"><img src="images/scarves/scarves-detail.jpg" alt="Indigo heritage patterned scarf"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">SCARVES</p><h3>Indigo Heritage Scarf</h3><div class="product-bottom"><span class="price">$22.00</span><button class="add-button" type="button" aria-label="Add Indigo Heritage Scarf to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="accessory-01" data-category="Accessories" data-name="Silver & Garnet Adornment" data-price="36" data-description="A jewelry-inspired accessory set with silver tones and jewel colors drawn from traditional adornment.">
+          <div class="product-photo"><span class="product-tag">Artisan detail</span><img src="images/accessories/afghan-jewelry.jpg" alt="Silver and garnet traditional jewelry"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">ACCESSORIES</p><h3>Silver & Garnet Adornment</h3><div class="product-bottom"><span class="price">$36.00</span><button class="add-button" type="button" aria-label="Add Silver and Garnet Adornment to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="accessory-02" data-category="Accessories" data-name="Embroidered Keepsake Pouch" data-price="18" data-description="A compact keepsake pouch inspired by richly embroidered textiles and decorative handmade details.">
+          <div class="product-photo"><img src="images/accessories/accessories-detail.jpg" alt="Embroidered keepsake pouch and jewelry"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">ACCESSORIES</p><h3>Embroidered Keepsake Pouch</h3><div class="product-bottom"><span class="price">$18.00</span><button class="add-button" type="button" aria-label="Add Embroidered Keepsake Pouch to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="carpet-01" data-category="Carpets" data-name="Herat Medallion Rug" data-price="180" data-description="A decorative rug inspired by the deep reds, repeating borders, and geometric medallions found in Afghan carpet design.">
+          <div class="product-photo"><span class="product-tag">Statement piece</span><img src="images/carpets/afghan-rug.jpg" alt="Herat medallion inspired Afghan rug"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">CARPETS</p><h3>Herat Medallion Rug</h3><div class="product-bottom"><span class="price">$180.00</span><button class="add-button" type="button" aria-label="Add Herat Medallion Rug to bag">+</button></div></div>
+        </article>
+        <article class="product-card reveal" data-id="carpet-02" data-category="Carpets" data-name="Crimson Nomad Carpet" data-price="145" data-description="A rich, warm-toned carpet inspired by nomadic motifs and the enduring craft of handwoven floor textiles.">
+          <div class="product-photo"><img src="images/carpets/carpets-detail.jpg" alt="Crimson nomad style carpet"><button class="quick-view" type="button">View details</button></div><div class="product-info"><p class="product-category">CARPETS</p><h3>Crimson Nomad Carpet</h3><div class="product-bottom"><span class="price">$145.00</span><button class="add-button" type="button" aria-label="Add Crimson Nomad Carpet to bag">+</button></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section" id="craft">
+    <div class="story-image"><img src="images/carpets/afghan-rug.jpg" alt="Traditional patterned Afghan rug displaying rich colors and geometric motifs"></div>
+    <div class="story-copy"><span class="story-floral" aria-hidden="true"></span><p class="eyebrow">The art behind every piece</p><h2>Crafted with patience.<br>Carried with pride.</h2><p>Afghan craftsmanship is a living expression of creativity, memory, and place. From richly patterned textiles to detailed embroidery and woven carpets, these traditions carry knowledge from one generation to the next. Zara Handmade brings that spirit into a thoughtful collection for today.</p>
+      <div class="story-values"><div class="story-value"><strong>Handmade</strong><span>Made with care</span></div><div class="story-value"><strong>Heritage</strong><span>Inspired by tradition</span></div><div class="story-value"><strong>Unique</strong><span>Character in every detail</span></div></div>
+    </div>
+  </section>
+
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-copy reveal"><p class="eyebrow">Let's connect</p><h2>Have a question?<br>We'd love to hear.</h2><p>Ask about a product, share a collaboration idea, or tell us which craft tradition inspires you most.</p>
+          <div class="contact-detail"><span class="contact-symbol">✉</span><div><strong>Email</strong><span>hello@zarahandmade.com</span></div></div>
+          <div class="contact-detail"><span class="contact-symbol">⌖</span><div><strong>Inspired by Afghanistan</strong><span>Kabul, Afghanistan</span></div></div>
+          <div class="contact-detail"><span class="contact-symbol">✦</span><div><strong>Thoughtful craftsmanship</strong><span>Every piece tells a story.</span></div></div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-row"><label for="contactName">Your name<input id="contactName" name="name" type="text" placeholder="Enter your name" minlength="2" required></label><label for="contactEmail">Email address<input id="contactEmail" name="email" type="email" placeholder="you@example.com" required></label></div>
+          <label for="contactSubject">Subject<input id="contactSubject" name="subject" type="text" placeholder="What would you like to ask?"></label>
+          <label for="contactMessage">Your message<textarea id="contactMessage" name="message" rows="5" placeholder="Write your message here..." minlength="8" required></textarea></label>
+          <button class="btn btn-primary" type="submit">Prepare message <span>↗</span></button>
+          <p class="form-note">Demo form: it validates your message in the browser. To deliver messages to an inbox, connect a backend or email service.</p>
+          <p id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container footer-inner">
+  <a class="footer-brand" href="#home"><span class="brand-mark">Z</span><span>Zara Handmade</span></a>
+  <p>© <span id="year"></span> Zara Handmade. Afghan heritage, handcrafted with heart.</p>
+  <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a href="#categories">Categories</a><a href="#shop">Shop</a><a href="#contact">Contact</a></nav>
+</div></footer>
+
+<div class="overlay" id="overlay"></div>
+<section class="dialog" id="productDialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle" aria-hidden="true">
+  <button class="dialog-close" data-close-dialog aria-label="Close product details">×</button>
+  <div class="product-dialog-content"><img id="dialogImage" src="" alt=""><div class="dialog-copy"><p class="eyebrow" id="dialogCategory"></p><h2 id="dialogTitle"></h2><p id="dialogDescription"></p><div class="dialog-price" id="dialogPrice"></div><button class="btn btn-primary" id="dialogAdd">Add to bag <span>+</span></button></div></div>
+</section>
+<section class="dialog welcome-dialog" id="welcomeDialog" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" aria-hidden="true">
+  <button class="dialog-close" data-close-dialog aria-label="Close welcome message">×</button><div class="ornament" aria-hidden="true"></div><p class="eyebrow">Welcome to Zara Handmade</p><h2 id="welcomeTitle">A little piece of heritage.</h2><p>Explore Afghan-inspired handmade crafts, thoughtful details, and timeless patterns. Find something that speaks to you.</p><button class="btn btn-primary" id="welcomeExplore">Explore the collection ↗</button>
+</section>
+<aside class="bag-drawer" id="bagDrawer" aria-label="Shopping bag" aria-hidden="true">
+  <div class="drawer-head"><div><p class="eyebrow">Your selection</p><h2>Shopping bag</h2></div><button class="icon-button" id="closeBag" aria-label="Close shopping bag">×</button></div>
+  <div class="bag-items" id="bagItems"></div>
+  <div class="drawer-foot"><div class="subtotal"><span>Subtotal</span><span id="bagSubtotal">$0.00</span></div><button class="btn btn-primary" id="checkoutButton">Continue to checkout ↗</button><p class="form-note">Demo storefront: checkout is not connected to a payment provider.</p></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const $ = (selector, root=document) => root.querySelector(selector);
+  const $$ = (selector, root=document) => [...root.querySelectorAll(selector)];
+  const money = amount => `$${amount.toFixed(2)}`;
+  const products = $$('.product-card').map(card => ({
+    id:card.dataset.id, category:card.dataset.category, name:card.dataset.name,
+    price:Number(card.dataset.price), description:card.dataset.description,
+    image:$('img',card).getAttribute('src'), alt:$('img',card).alt
+  }));
+  let cart = {};
+  try { cart = JSON.parse(localStorage.getItem('zaraHandmadeCart') || '{}') || {}; } catch { cart = {}; }
+  let currentProduct = null, toastTimer;
+
+  // Theme preference
+  const root = document.documentElement;
+  const themeToggle = $('#themeToggle');
+  const storedTheme = localStorage.getItem('zaraHandmadeTheme');
+  if (storedTheme === 'dark') root.dataset.theme = 'dark';
+  themeToggle.textContent = root.dataset.theme === 'dark' ? '☾ / ☼' : '☼ / ☾';
+  themeToggle.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  themeToggle.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('zaraHandmadeTheme', root.dataset.theme);
+    themeToggle.textContent = root.dataset.theme === 'dark' ? '☾ / ☼' : '☼ / ☾';
+    themeToggle.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  });
+
+  // Mobile navigation
+  const nav = $('#mainNav'), menuToggle = $('#menuToggle');
+  menuToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.textContent = open ? '×' : '☰';
+  });
+  $$('#mainNav a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); menuToggle.textContent='☰';
+  }));
+  const sectionObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if(entry.isIntersecting) $$('#mainNav a').forEach(a => a.classList.toggle('active',a.getAttribute('href') === `#${entry.target.id}`));
+  }), {rootMargin:'-35% 0px -55% 0px'});
+  $$('main section[id]').forEach(section => sectionObserver.observe(section));
+
+  // Reveal on scroll
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}
+    }), {threshold:.1});
+    $$('.reveal').forEach(el => revealObserver.observe(el));
+  } else $$('.reveal').forEach(el => el.classList.add('visible'));
+
+  // Toast
+  function toast(message) {
+    const el = $('#toast'); el.textContent = message; el.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+  }
+
+  // Category filters
+  function setFilter(category) {
+    $$('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === category));
+    let shown = 0;
+    $$('.product-card').forEach(card => {
+      const visible = category === 'All' || card.dataset.category === category;
+      card.hidden = !visible;
+      if(visible) shown++;
+    });
+    if(!shown) toast('No products in this category yet.');
+  }
+  $$('.filter-btn').forEach(btn => btn.addEventListener('click', () => setFilter(btn.dataset.filter)));
+  $$('[data-category-link]').forEach(link => link.addEventListener('click', () => setFilter(link.dataset.categoryLink)));
+
+  // Product detail modal
+  const overlay = $('#overlay'), productDialog = $('#productDialog'), welcomeDialog = $('#welcomeDialog');
+  function openDialog(dialog) {
+    closeBag();
+    overlay.classList.add('open'); dialog.classList.add('open'); dialog.setAttribute('aria-hidden','false');
+    document.body.classList.add('locked');
+  }
+  function closeDialogs() {
+    overlay.classList.remove('open');
+    [productDialog,welcomeDialog].forEach(dialog => {dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');});
+    document.body.classList.remove('locked');
+  }
+  function openProduct(product) {
+    currentProduct = product;
+    $('#dialogImage').src = product.image; $('#dialogImage').alt = product.alt;
+    $('#dialogCategory').textContent = product.category;
+    $('#dialogTitle').textContent = product.name;
+    $('#dialogDescription').textContent = product.description;
+    $('#dialogPrice').textContent = money(product.price);
+    openDialog(productDialog);
+  }
+  $$('.quick-view').forEach(btn => btn.addEventListener('click', () => openProduct(products.find(p => p.id === btn.closest('.product-card').dataset.id))));
+  $$('[data-close-dialog]').forEach(btn => btn.addEventListener('click', closeDialogs));
+  overlay.addEventListener('click', closeDialogs);
+  document.addEventListener('keydown', e => {if(e.key === 'Escape'){closeDialogs();closeBag();}});
+
+  // Cart stored in localStorage
+  function saveCart(){localStorage.setItem('zaraHandmadeCart',JSON.stringify(cart));renderCart();}
+  function addToCart(product) {
+    if(!product) return;
+    cart[product.id] = (cart[product.id] || 0) + 1;
+    saveCart(); toast(`${product.name} added to your bag.`);
+  }
+  $$('.add-button').forEach(btn => btn.addEventListener('click', () => {
+    const card = btn.closest('.product-card'); addToCart(products.find(p => p.id === card.dataset.id));
+  }));
+  $('#dialogAdd').addEventListener('click', () => {addToCart(currentProduct);closeDialogs();});
+  function renderCart() {
+    const entries = Object.entries(cart).filter(([id,qty]) => products.some(p=>p.id===id) && qty>0);
+    cart = Object.fromEntries(entries);
+    const count = entries.reduce((sum,[,qty])=>sum+qty,0);
+    $('#bagCount').textContent = count;
+    const subtotal = entries.reduce((sum,[id,qty])=>sum+products.find(p=>p.id===id).price*qty,0);
+    $('#bagSubtotal').textContent = money(subtotal);
+    const items = $('#bagItems');
+    if(!entries.length) {
+      items.innerHTML = '<div class="bag-empty"><div class="bag-icon">♧</div><h3 class="serif" style="font-size:1.8rem;margin:12px 0 6px">Your bag is empty</h3><p>Add a handmade piece to begin your collection.</p></div>';
+    } else {
+      items.innerHTML = entries.map(([id,qty]) => {
+        const p = products.find(item=>item.id===id);
+        return `<article class="bag-item"><img src="${p.image}" alt="${p.alt}"><div><h3>${p.name}</h3><p>${money(p.price)}</p><div class="quantity-control"><button data-qty="-1" data-id="${p.id}" aria-label="Decrease quantity">−</button><span>${qty}</span><button data-qty="1" data-id="${p.id}" aria-label="Increase quantity">+</button></div></div><button class="remove-item" data-remove="${p.id}">Remove</button></article>`;
+      }).join('');
+    }
+    items.querySelectorAll('[data-qty]').forEach(btn=>btn.addEventListener('click',()=>{
+      const id=btn.dataset.id; cart[id]=(cart[id]||0)+Number(btn.dataset.qty); if(cart[id]<=0) delete cart[id]; saveCart();
+    }));
+    items.querySelectorAll('[data-remove]').forEach(btn=>btn.addEventListener('click',()=>{delete cart[btn.dataset.remove];saveCart();toast('Item removed from your bag.');}));
+    localStorage.setItem('zaraHandmadeCart',JSON.stringify(cart));
+  }
+  renderCart();
+
+  // Bag drawer
+  const drawer = $('#bagDrawer');
+  function openBag(){closeDialogs();drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');overlay.classList.add('open');document.body.classList.add('locked');}
+  function closeBag(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');if(!productDialog.classList.contains('open')&&!welcomeDialog.classList.contains('open')){overlay.classList.remove('open');document.body.classList.remove('locked');}}
+  $('#bagTrigger').addEventListener('click',openBag); $('#closeBag').addEventListener('click',closeBag);
+  $('#checkoutButton').addEventListener('click',()=>{if(!Object.keys(cart).length){toast('Your bag is empty. Add a piece first.');return;}toast('Demo checkout only — connect a payment provider to accept orders.');});
+
+  // Welcome popup, once per tab session
+  $('#welcomeExplore').addEventListener('click',()=>{closeDialogs();document.querySelector('#shop').scrollIntoView({behavior:'smooth'});sessionStorage.setItem('zaraWelcomeSeen','yes');});
+  if(!sessionStorage.getItem('zaraWelcomeSeen')) setTimeout(()=>openDialog(welcomeDialog),650);
+  $$('.dialog-close').forEach(btn=>btn.addEventListener('click',()=>{closeDialogs();if(welcomeDialog.classList.contains('open'))sessionStorage.setItem('zaraWelcomeSeen','yes');}));
+  // Overlay click closes any active panel; bag drawer uses the same overlay.
+  overlay.addEventListener('click',()=>{closeDialogs();closeBag();});
+
+  // Contact form: front-end validation only, no fake delivery claim.
+  $('#contactForm').addEventListener('submit',event=>{
+    event.preventDefault();
+    const form=event.currentTarget;
+    if(!form.reportValidity()){toast('Please check the required fields.');return;}
+    const name=$('#contactName').value.trim();
+    $('#formStatus').textContent=`Thank you, ${name}. Your message passed validation; connect an email service to send it.`;
+    toast('Message checked. Email delivery is not connected yet.');
+    form.reset();
+  });
+  $('#year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
